@@ -20,8 +20,6 @@ foreach ($result_raw_list as $item) {
     if (count($value) < 2) continue;
     $result_params[$value[0]] = $value[1];
 }
-if ($result_params["scope"] != "user")
-    die("Permission Denied.");
 $result = CurlGet("https://api.github.com/user?access_token=${result_params["access_token"]}");
 $result_obj = json_decode($result, true);
 if (!key_exists("email", $result_obj))
