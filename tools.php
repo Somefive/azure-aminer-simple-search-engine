@@ -1,6 +1,6 @@
 <?php
 $redis = new Redis();
-$GLOBALS = json_decode(file_get_contents("conf.json"),true);
+$GLOBALS = json_decode(file_get_contents(__DIR__."/conf.json"),true);
 $redis->connect($GLOBALS["redis-host"], $GLOBALS["redis-port"]);
 $redis->auth($GLOBALS["redis-password"]);
 function response($message = null, $data = null, $status = false) {
